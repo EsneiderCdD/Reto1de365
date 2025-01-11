@@ -1,3 +1,9 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 1px dotted red ;
+}
 .app-container {
   text-align: center;
   padding: 50px;
@@ -7,4 +13,79 @@
 
 h1 {
   color: #333;
+}
+/*Titulo */
+.Title{
+  text-align: center;
+  background-color: #f0f0f0;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Botones de navegación */
+.navigation {
+  height: 175px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+  background-color: #f0f0f0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+
+}
+
+/* Estilos para los botones */
+.Button-Navigation {
+  padding: 10px 20px;
+  background-color: #ff0800ad;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 20px;
+  border-radius: 50%;
+}
+/* Seccion Subtitle */
+.Subtitle{
+  text-align: center;
+  background-color: #f0f0f0;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.Subtitle h2{
+  color: #333;
+  font-size: 30px;
+  font-weight: bold;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+.button-container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+  background-color: #f0f0f0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.button-container button {
+  margin: 10px;
+  padding: 10px 20px;
+  background-color: #ff0000;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  border-radius: 15px;
+}
+.message {
+  text-align: center;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #f0f0f0;
 }

@@ -1,35 +1,48 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion'; // Importamos Framer Motion para las animaciones
+import { motion } from 'framer-motion'; 
 import './App.css';
 
 function App() {
-  // Estado para manejar el mensaje dinámico
-  const [message, setMessage] = useState('');
-  const [section, setSection] = useState('basic'); // Controlamos qué sección se muestra
 
-  // Función para actualizar el mensaje
+  const [message, setMessage] = useState('');
+  const [section, setSection] = useState('basic'); 
   const handleClick = (newMessage) => {
     setMessage(newMessage);
   };
 
   return (
+
+    
+    
     <div className="App">
-      <h1>Ejercicio de Botones en React</h1>
+      
+      <div className='Title'>
+        <h1>Ejercicio de Botones en React</h1>
+      </div>
 
       {/* Botones para alternar entre la sección básica y la animada */}
       <div className="navigation">
-        <button onClick={() => setSection('basic')}>Versión Básica</button>
-        <button onClick={() => setSection('animated')}>Versión Animada</button>
+        <motion.button className='Button-Navigation' 
+        whileHover={{ scale: 1.1 }}
+        onClick={() => setSection('basic')}>Versión Básica
+        </motion.button>
+
+        <motion.button className='Button-Navigation' 
+        whileHover={{ scale: 1.1 }}
+        onClick={() => setSection('animated')}>Versión Animada</motion.button>
       </div>
 
       {/* Sección 1: Botones básicos */}
       {section === 'basic' && (
         <div className="basic-section">
-          <h2>Sección Básica</h2>
-          <p>
-            En esta sección se presentan los botones básicos sin animaciones. 
-            Esta fue la primera etapa del ejercicio.
-          </p>
+          
+          <div className='Subtitle'>
+            <h2>Sección Básica</h2>
+            <p>
+              En esta sección se presentan los botones básicos sin animaciones.
+              Esta fue la primera etapa del ejercicio.
+            </p>
+          </div>
           <div className="button-container">
             <button onClick={() => handleClick('¡Botón 1 clicado!')}>Botón 1</button>
             <button onClick={() => handleClick('¡Botón 2 clicado!')}>Botón 2</button>
@@ -42,10 +55,12 @@ function App() {
       {/* Sección 2: Botones animados */}
       {section === 'animated' && (
         <div className="animated-section">
-          <h2>Sección Animada</h2>
-          <p>
-            En esta sección, los botones incluyen animaciones usando Framer Motion.
-          </p>
+          <div className='Subtitle'>
+            <h2>Sección Animada</h2>
+            <p>
+              En esta sección, los botones incluyen animaciones usando Framer Motion.
+            </p>
+          </div>
           <div className="button-container">
             {/* Botón Animado 1 */}
             <motion.button
