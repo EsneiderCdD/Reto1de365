@@ -89,3 +89,12 @@ h1 {
   padding: 10px;
   background-color: #f0f0f0;
 }
+.Cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  background-color: #f0f0f0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
