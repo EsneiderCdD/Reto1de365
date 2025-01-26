@@ -10,6 +10,19 @@ function App() {
   const handleClick = (newMessage) => {
     setMessage(newMessage);
   };
+  
+
+  {/*Respuestas Container-3 */}
+  {/*Ejercicio 1 */}
+  const [texto, setTexto] = useState('Texto inicial');
+  {/*Ejercicio 2 */}
+  const [contador, setContador] = useState(0); 
+  {/*Ejercicio 3 */} 
+  const img1 = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdlyyyfBQwXzLJtp4azsYe5izFOlKvMO2GGQ&s';
+  const img2 = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQca_RxyM-MaegC6eChGXlMW-Oul2aja79Kcg&s';
+  const [imagenActual, setImagenActual] = useState(img1);
+
+  const img3 = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXeHJRQTC9RumjNYF76DFcT5Hw2862THnQYQ&s';
 
   return (
     
@@ -97,6 +110,9 @@ function App() {
           </div>
         )}
       </div>
+
+
+      
       {/*Nueva Seccion*/}
       <div className='Container-2'>
       <div className='Cards'>
@@ -394,9 +410,75 @@ function App() {
           transition={{ duration: 1.2, repeat: Infinity }}
         />
       </Card>
-      </div>
+      </div> {/*cierre de Cards*/}
       
-      </div>
+      </div> {/*cierre del container 2*/}
+
+      <div className='Container-3' >
+        <div className='Practica'>
+
+          <div className='Ejercicio1'>
+            <h2>Ejercicio 1: Cambiar texto con un botón</h2>
+            <p>Texto actual: {texto}</p>
+            <button onClick={() => setTexto('¡Texto cambiado!')}>Cambiar Texto</button>
+            {/*Solucion: Declarar el estado antes del return
+            const [text, setTexto] = useState('Texto inicial');*/}
+          </div>
+
+          <div className='Tarea1'>
+            {/*Tarea:
+            Crea otro botón que cambie el texto a "Texto alternativo" y verifica cómo se comporta.*/}
+            <button onClick={() => setTexto('Felicidades. has cambiado el texto a "Texto alternativo"')} >Cambiar a texto alternativo</button>
+          </div>
+
+          <div className='Ejercicio2'>
+            <h2>Ejercico 2: Contador</h2>
+            <p>Contador actual: {contador}</p>
+            <button onClick={() => setContador(contador + 1)} >Incrementar</button>
+            <button onClick={() => setContador(contador - 1)}>Decrementar</button>
+            {/*Solucion: Declarar el estado antes del return
+            const [contador, setContador] = useState(0);*/}
+          </div>
+
+          <div className='Tarea2'>
+            {/*Tarea:
+            Crea un tercer botón que reinicie el contador a 0.*/}
+            <button onClick={() => setContador(0)}>Reiniciar </button>
+          </div>
+
+          <div className='Ejercicio3'>
+            <h2>Ejercicio 3: Alternar Imagenes</h2>
+            <img src={imagenActual} alt="Imagen Dinamica" style={{ width: '200px'}}/>
+            <button onClick={() => setImagenActual (imagenActual === img1 ? img2 : img1)}>Cambiar imagen</button>
+            {/*Solucion: Declarar el estado antes del return
+            const img1 = 'https://via.placeholder.com/200/FF0000';
+            const img2 = 'https://via.placeholder.com/200/00FF00';
+            const [imagenActual, setImagenActual] = useState(img1);
+            
+            Nota: El condicional ternario (imagenActual === img1 ? img2 : img1) comprueba si la imagen actual es la primera imagen (img1) y cambia a la segunda imagen (img2) en caso contrario. Es una forma compacta de escribir un condicional if-else.
+            Si imagenActual = img1, entonces:
+            img1 === img1 es true -> Cambia a img2
+            Si imagenActual = img2, entonces:
+            img2 === img1 es false -> Cambia a img1
+            */}
+          </div>
+
+          <div className='Tarea3'>
+            {/*Tarea:
+            Crea un segundo botón que siempre muestre una tercera imagen estática al hacer clic.*/}
+            <button onClick={() => setImagenActual(img3)}>Mostrar Imagen Estatica</button>
+
+            
+
+          </div>
+
+
+
+
+        </div> {/*cierre de Practica*/}
+
+        
+      </div> {/*cierre del container 3*/}
     </div>
   );
 }
