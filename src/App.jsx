@@ -4,6 +4,7 @@ import './App.css';
 import Card from './components/Card';
 
 
+
 function App() {
 
   const [message, setMessage] = useState('');
@@ -68,13 +69,18 @@ function App() {
   const [colorCaja2, setColorCaja2] = useState('blue');
   const [colorCaja3, setColorCaja3] = useState('green');
 
-
-
   const cambiarColor1 = () => setColorCaja1(colorCaja1 === 'red' ? 'orange' : 'red');
   const cambiarColor2 = () => setColorCaja2(colorCaja2 === 'blue' ? 'purple' : 'blue');
   const cambiarColor3 = () => setColorCaja3(colorCaja3 === 'green' ? 'yellow' : 'green');
 
+  {/*Ejercicio 8 */}
 
+  {/* Estado para controlar la visibilidad del texto 
+  Inicialmente es false, por lo que no aparece.*/}
+  const [mostrarTexto, setMostrarTexto] = useState(false);
+  
+  {/* Funcion para alternar entre mostrar y ocultar el texto */}
+  const toggleTexto = () => setMostrarTexto(!mostrarTexto) //cambia 'mostrarTexto' a el valor opuesto
 
   
  
@@ -598,6 +604,17 @@ function App() {
 
           <div style={{ backgroundColor: colorCaja3, width: '100px', height: '100px', margin: '10px'}}></div>
           <button onClick={cambiarColor3}>Cambiar Color Caja 3 </button>
+        </div>
+
+        <div className='Ejercicio8'>
+          <h2>Ejercicio 8: Mostrar/Ocultar texto</h2>
+          <p>Este ejercicio será simple y funcional para entender cómo funciona la renderización condicional con &&</p>
+          <button onClick={toggleTexto}>{mostrarTexto ? 'Ocultar Texto' : 'Mostar Texto'}</button>
+          {/* la etiqueta boton cambia dinamicamente entre Ocultar Texto y Mostar Texto usando operador ternario */}
+
+          {mostrarTexto && <p>¡Este es el texto que aparece y desaparece!</p>}
+          {/* si mostrarTexto es true, entonces: ... */}
+
         </div>
 
       
