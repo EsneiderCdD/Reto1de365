@@ -54,6 +54,16 @@ function App() {
   Ejemplo: si Lista = ['A', 'B', 'C'] y queremos eliminar el elemento 'B', entonces lista.filter((_, i) => i !== 1) resulta en ['A', 'C']
   */}
 
+  {/*Ejercicio 6 */}
+  const [texto1, setTexto1] = useState('Texto 1 inicial');
+  const [texto2, setTexto2] = useState('Texto 2 inicial');
+  const [texto3, setTexto3] = useState('Texto 3 inicial'); 
+
+  const cambiarTexto1 = () => setTexto1('Eres un Crack! 😎');
+  const cambiarTexto2 = () => setTexto2('Muy bien, asi se hace! 🤩');
+  const cambiarTexto3 = () => setTexto3('Sigue asi y pronto seras un experto! 🤓');
+
+
   
  
   return (
@@ -553,6 +563,20 @@ function App() {
           3. La propiedad key es una clave unica que React utiliza para identificar cada elemento de la lista y mantener su estado adecuado. En este caso, la clave key es el index de la lista.
           */}
         </div>
+
+        <div className='Ejercicio6'>
+          <h2>Ejercicio 6: Cambiar multiples textos</h2>
+          <p>{texto1}</p>
+          <button onClick={cambiarTexto1}>Cambiar Texto 1</button>
+
+          <p>{texto2}</p>
+          <button onClick={cambiarTexto2}>Cambiar Texto 2</button>
+
+          <p>{texto3}</p>
+          <button onClick={cambiarTexto3}>Cambiar Texto 3</button>
+        </div>
+
+      
 
         </div> {/*cierre de Practica*/}
       </div> {/*cierre del container 3*/}
