@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import './App.css';
 import Card from './components/Card';
 
+
 function App() {
 
   const [message, setMessage] = useState('');
@@ -27,6 +28,34 @@ function App() {
   {/*Ejercicio 4 */}
   const [textoInput, setTextoInput] = useState('');
 
+  {/*Ejercicio 5 */}
+  const [elemento, setElemento] = useState('');
+  const [lista, setLista] = useState([]);
+
+  const agregarElemento = () => {
+    if (elemento.trim() !== '') {
+      setLista([...lista, elemento]);
+      setElemento(''); // Limpiar el input después de agregar
+    }
+  };
+  {/*Notas
+  El metodo .trim() elimina los espacios en blanco al principio y al final de la cadena. Esto asegura que no se puedan agregar elementos vacios o que solo contengan espacios en blanco.
+  (...) es el operador "spread", que permite copiar los elementos de un array o objeto y crear un nuevo array con ellos (elemento). En detalle, ...lista copia los elementos actuales de la lista. ...lista, elemento agrega el nuevo elemento al final del array copiado. Ejemplo: Si lista = [1, 2, 3], entonces [...lista, 4] resulta en [1, 2, 3, 4].  
+  */}
+  const eliminarElemento = (index) => {
+    setLista(lista.filter((_, i) => i !== index));
+  };
+  {/*Notas
+  1.index es el indice del elemento que se va a eliminar 
+  2.lista.filter() crea un nuevo arreglo que contiene solo los elementos que cumplen con la condicion que se define dentro, en este caso: (_, i) => i !== index. 
+  2.1 _ (subrayado) representa el elemento actual (no lo usamos aqui, asi que lo omitimos)
+  2.2 i es el indice del elemento actual.
+  2.3 i !== index es una condicion que verifica si el indice actual (i) es diferente al indice que queremos eliminar (index).
+  Ejemplo: si Lista = ['A', 'B', 'C'] y queremos eliminar el elemento 'B', entonces lista.filter((_, i) => i !== 1) resulta en ['A', 'C']
+  */}
+
+  
+ 
   return (
     
     <div className="App">
@@ -483,14 +512,10 @@ function App() {
             1. <input/> es un componente de entrada de texto que permite al usuario ingresar texto.
             2. La propiedad type define el tipo de entrada, en este caso "text". Pero tambien podemos usar:
             "number" : para capturar un valor numérico.
-            "email" : para capturar una dirección de correo electrónica.
             "password" : Oculta los caracteres ingresados.
             "search" : Se utiliza para la barra de búsqueda.
             "checkbox" : Entrada tipo casilla de verificacion.
-            "radio" : Entrada tipo botón de radio.
-            "file" : Entrada para subir archivos.
-            "color" : Entrada para seleccionar un color.
-            "range" : Entrada para seleccionar un rango de valores.
+    
             3. onChange es un evento que se dispara cuando el valor del input cambia.
             3.1 "e" es un evento que contiene información sobre el cambio del input, incluyendo el nuevo valor. Es un objeto especial de React conocido como SyntheticEvent. No necesita declararlo con "const" ya que React lo pasa automaticamente al usar la función onChange, onClick, etc.
             3.2 "e.target.value" es el nuevo valor ingresado en el input. Dentro del evento "e", la propiedad "target" se refiere al elemento HTML que activo el evento (en este caso, el input), y la propiedad "value" contiene el valor actual del input.
@@ -505,17 +530,31 @@ function App() {
             <button onClick={() => setTextoInput('') } >Borrar Texto</button>
           </div>
 
-          <div className='Ejercicio5'>
-            
-
-          </div>
-
-
-
+          <div className="Ejercicio5">
+          <h2>Ejercicio 5: Manejo de listas dinámicas</h2>
+          <input 
+            type="text" 
+            placeholder="Añadir a la lista..." 
+            value={elemento}
+            onChange={(e) => setElemento(e.target.value)}
+          />
+          <button onClick={agregarElemento}>Agregar</button>
+          <ul>
+            {lista.map((item, index) => (
+              <li key={index}>
+                {item}
+                <button onClick={() => eliminarElemento(index)}>Eliminar</button>
+              </li>
+            ))}
+          </ul>
+          {/*Notas:
+          1. .map recorre cada elemento de la lista y genera una nueva lista con los elementos modificados. Aqui lo usamos para generar los elementos de la lista.
+          2. Argumento (item, index) de la función flecha es una desestructuración de los elementos de la lista. item representa el elemento en si, mientras que index representa su posición en la lista.
+          3. La propiedad key es una clave unica que React utiliza para identificar cada elemento de la lista y mantener su estado adecuado. En este caso, la clave key es el index de la lista.
+          */}
+        </div>
 
         </div> {/*cierre de Practica*/}
-
-        
       </div> {/*cierre del container 3*/}
     </div>
   );
