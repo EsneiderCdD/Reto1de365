@@ -63,6 +63,18 @@ function App() {
   const cambiarTexto2 = () => setTexto2('Muy bien, asi se hace! 🤩');
   const cambiarTexto3 = () => setTexto3('Sigue asi y pronto seras un experto! 🤓');
 
+  {/*Ejercicio 7 */}
+  const [colorCaja1, setColorCaja1] = useState('red');
+  const [colorCaja2, setColorCaja2] = useState('blue');
+  const [colorCaja3, setColorCaja3] = useState('green');
+
+
+
+  const cambiarColor1 = () => setColorCaja1(colorCaja1 === 'red' ? 'orange' : 'red');
+  const cambiarColor2 = () => setColorCaja2(colorCaja2 === 'blue' ? 'purple' : 'blue');
+  const cambiarColor3 = () => setColorCaja3(colorCaja3 === 'green' ? 'yellow' : 'green');
+
+
 
   
  
@@ -574,6 +586,18 @@ function App() {
 
           <p>{texto3}</p>
           <button onClick={cambiarTexto3}>Cambiar Texto 3</button>
+        </div>
+
+        <div className='Ejercicio7'>
+          <h2>Ejercicio 7: Cambiar colores de cajas</h2>
+          <div style={{ backgroundColor: colorCaja1, width: '100px', height: '100px', margin: '10px'}}></div>
+          <button onClick={cambiarColor1}> Cambiar Color Caja 1 </button>
+
+          <div style={{ backgroundColor: colorCaja2, width: '100px', height: '100px', margin: '10px'}}></div>
+          <button onClick={cambiarColor2}>Cambiar Color Caja 2 </button>
+
+          <div style={{ backgroundColor: colorCaja3, width: '100px', height: '100px', margin: '10px'}}></div>
+          <button onClick={cambiarColor3}>Cambiar Color Caja 3 </button>
         </div>
 
       
