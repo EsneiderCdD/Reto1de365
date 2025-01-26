@@ -24,6 +24,9 @@ function App() {
 
   const img3 = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXeHJRQTC9RumjNYF76DFcT5Hw2862THnQYQ&s';
 
+  {/*Ejercicio 4 */}
+  const [textoInput, setTextoInput] = useState('');
+
   return (
     
     <div className="App">
@@ -467,7 +470,42 @@ function App() {
             {/*Tarea:
             Crea un segundo botón que siempre muestre una tercera imagen estática al hacer clic.*/}
             <button onClick={() => setImagenActual(img3)}>Mostrar Imagen Estatica</button>
+          </div>
 
+          <div className='Ejercicio4'>
+            <h2>Ejercicio 4: Captura de texto en tiempo real</h2>
+            <input type="text"
+              placeholder= "Escribe algo..."
+              value={textoInput}
+              onChange={(e) => setTextoInput(e.target.value)}
+            />
+            {/*Notas:
+            1. <input/> es un componente de entrada de texto que permite al usuario ingresar texto.
+            2. La propiedad type define el tipo de entrada, en este caso "text". Pero tambien podemos usar:
+            "number" : para capturar un valor numérico.
+            "email" : para capturar una dirección de correo electrónica.
+            "password" : Oculta los caracteres ingresados.
+            "search" : Se utiliza para la barra de búsqueda.
+            "checkbox" : Entrada tipo casilla de verificacion.
+            "radio" : Entrada tipo botón de radio.
+            "file" : Entrada para subir archivos.
+            "color" : Entrada para seleccionar un color.
+            "range" : Entrada para seleccionar un rango de valores.
+            3. onChange es un evento que se dispara cuando el valor del input cambia.
+            3.1 "e" es un evento que contiene información sobre el cambio del input, incluyendo el nuevo valor. Es un objeto especial de React conocido como SyntheticEvent. No necesita declararlo con "const" ya que React lo pasa automaticamente al usar la función onChange, onClick, etc.
+            3.2 "e.target.value" es el nuevo valor ingresado en el input. Dentro del evento "e", la propiedad "target" se refiere al elemento HTML que activo el evento (en este caso, el input), y la propiedad "value" contiene el valor actual del input.
+
+             */}
+            <p>Texto ingresado: {textoInput}</p>
+          </div>
+
+          <div className='Tarea4'>
+            {/*Tarea:
+            Agrega un botón que borre el texto ingresado en el input.*/}
+            <button onClick={() => setTextoInput('') } >Borrar Texto</button>
+          </div>
+
+          <div className='Ejercicio5'>
             
 
           </div>
