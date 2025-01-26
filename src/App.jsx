@@ -82,7 +82,25 @@ function App() {
   {/* Funcion para alternar entre mostrar y ocultar el texto */}
   const toggleTexto = () => setMostrarTexto(!mostrarTexto) //cambia 'mostrarTexto' a el valor opuesto
 
-  
+  {/*Ejercicio 9 */}
+  {/* Estado para guardar la opción seleccionada */}
+  const [opcion, setOpcion] = useState('');
+
+  /* Función para cambiar la opción actual */
+  const cambiarOpcion = (nuevaOpcion) => {
+    setOpcion(nuevaOpcion); // Actualiza `opcion` con el valor del botón presionado
+  };
+  {/*Ejercicio 10*/}
+
+  {/*Existe un boton que deberia de Mostrar / Ocultar una seccion*/}
+
+  // Estado del boton para alternar entre mostray ocultar
+  const [mostrar, setMostrar] = useState(false);
+
+  // Funcion para alternar entre mostrar y ocultar
+  const alternarContenido = () => {
+    setMostrar(!mostrar);
+  }
  
   return (
     
@@ -617,8 +635,33 @@ function App() {
 
         </div>
 
-      
+        <div className='Ejercicio9'>
+          <h2>Ejericicio 9: Alternar contenido con múltiples opciones</h2>
+            <button onClick={() => cambiarOpcion ('A')}> Opcion </button>
+            <button onClick={() => cambiarOpcion ('B')}>Opcion </button>
+            <button onClick={() => cambiarOpcion ('C')}>Opcion </button>
+              {/* Mensaje predeterminado o contenido basado en la opción seleccionada */}
+          <p>{opcion || 'Selecciona una opción para mostrar contenido.'}</p>
 
+        {opcion === 'A' && <p>Aqui podria ampliar el contenido A</p>}
+        {opcion === 'B' && <p>o decirte que eres un crack y es B</p>}
+        {opcion === 'C' && <p>Simplemente, Contenido de la Opción C</p>}
+        </div>
+
+        <div className='Ejercicio10'>
+          
+        <h2>Ejercicio 10: Boton que Muestre / Oculte seccion</h2>
+        <button onClick={alternarContenido}> {mostrar ? 'Ocultar' : 'Mostrar'} </button>
+
+        {mostrar && (
+          <div>
+            <p>Este es el contenido que se muestra y se oculta</p>
+          </div>
+        )}
+
+        </div>
+
+  
         </div> {/*cierre de Practica*/}
       </div> {/*cierre del container 3*/}
     </div>
